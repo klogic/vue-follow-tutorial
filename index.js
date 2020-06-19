@@ -31,6 +31,31 @@ var data = { a: 1 };
 var vm = new Vue({
   el: "#example",
   data: data,
+  beforeCreate: function () {
+    console.log("This is beforeCreate" + this.a);
+  },
+  created: function () {
+    console.log("This is created" + this.a);
+  },
+  beforeMount: function () {
+    console.log("This is beforeMount" + this.a);
+  },
+  mounted: function () {
+    console.log("This is mounted" + this.a);
+  },
+  beforeUpdate: function () {
+    this.a = "2";
+    console.log("This is beforeUpdate" + this.a);
+  },
+  updated: function () {
+    console.log("This is updated" + this.a);
+  },
+  beforeDistroy: function () {
+    console.log("This is beforeDistroy" + this.a);
+  },
+  distroyed: function () {
+    console.log("This is distroyed" + this.a);
+  },
 });
 vm.$watch("a", function (newValue, oldValue) {
   console.log(oldValue + " has trigger to ", newValue);
