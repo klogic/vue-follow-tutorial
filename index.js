@@ -44,7 +44,6 @@ var vm = new Vue({
     console.log("This is mounted" + this.a);
   },
   beforeUpdate: function () {
-    this.a = "2";
     console.log("This is beforeUpdate" + this.a);
   },
   updated: function () {
@@ -60,4 +59,17 @@ var vm = new Vue({
 vm.$watch("a", function (newValue, oldValue) {
   console.log(oldValue + " has trigger to ", newValue);
   // This callback will be called when `vm.a` changes
+});
+var withoutVHtml = new Vue({
+  el: "#without-v-html",
+  data: {
+    data: "<span style='color:red'>this should be red</span>",
+  },
+});
+
+var withVHtml = new Vue({
+  el: "#with-v-html",
+  data: {
+    data: "<span style='color:red'>this should be red</span>",
+  },
 });

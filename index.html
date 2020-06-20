@@ -17,6 +17,16 @@
       <button-counter></button-counter>
     </div>
     <div id="example" v-on:click="a+=1">{{a}}</div>
+    <p id="with-v-html">
+      Using v-html directive: {{data}}
+    </p>
+
+    <p id="without-v-html">
+      Using v-html directive: <span v-html="data"></span></p>
+    </p>
+
+    <p></p>
   </body>
+
   <script src="index.js"></script>
 </html>
