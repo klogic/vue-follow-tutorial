@@ -74,3 +74,12 @@ new Vue({
     },
   },
 });
+new Vue({
+  el: "#style-object",
+  data: {
+    styleObject: {
+      color: "red",
+      fontSize: "50px",
+    },
+  },
+});
