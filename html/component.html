@@ -61,6 +61,11 @@
     <div id="next-tick-example">
       {{ message }}
     </div>
+    <div id="for-nest-example">
+      <ul v-for="set in sets">
+        <li v-for="n in even(set)">{{ n }}</li>
+      </ul>
+    </div>
   </body>
 
   <script src="../js/component.js"></script>
