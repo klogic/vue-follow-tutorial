@@ -83,3 +83,17 @@ new Vue({
     },
   },
 });
+
+var vm = new Vue({
+  el: "#next-tick-example",
+  data: {
+    message: "123",
+  },
+});
+vm.message = "new message"; // change data
+vm.$el.textContent === "new message"; // false
+console.log("before set new-message: ", vm.$el.textContent.trim());
+Vue.nextTick(function () {
+  vm.$el.textContent === "new message"; // true
+  console.log("after set new-message and tick: ", vm.$el.textContent.trim());
+});
