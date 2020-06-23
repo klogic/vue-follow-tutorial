@@ -6,8 +6,41 @@
   </header>
   <body>
     <div id="simple-text-input">
-      <input v-model="message" placeholder="edit me" />
+      <input v-model.number="message" placeholder="edit me" type="number" />
       <p>Message is: {{ message }}</p>
+    </div>
+    <div id="multiple-checkbox-example">
+      <input type="checkbox" id="jack" value="Jack" v-model="checkedNames" />
+      <label for="jack">Jack</label>
+      <input type="checkbox" id="john" value="John" v-model="checkedNames" />
+      <label for="john">John</label>
+      <input type="checkbox" id="mike" value="Mike" v-model="checkedNames" />
+      <label for="mike">Mike</label>
+      <br />
+      <span>Checked names: {{ checkedNames }}</span>
+    </div>
+    <div id="radio-example">
+      <input type="radio" id="one" value="One" v-model="picked" />
+      <label for="one">One</label>
+      <br />
+      <input type="radio" id="two" value="Two" v-model="picked" />
+      <label for="two">Two</label>
+      <br />
+      <span>Picked: {{ picked }}</span>
+    </div>
+    <div id="value-binding-example">
+      <select v-model="selected">
+        <option disabled value="">please select</option>
+        <option v-bind:value="{ number: 123 }">123</option>
+      </select>
+      <span>selected: {{ selected }}</span>
+    </div>
+    <div id="value-binding-component">
+      <custom-input
+        v-bind:value="searchText"
+        v-on:input="searchText = $event"
+      ></custom-input>
+      {{searchText}}
     </div>
   </body>
 
