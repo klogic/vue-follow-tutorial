@@ -40,3 +40,19 @@ new Vue({
     searchText: "",
   },
 });
+
+// bind props and change template to h1 and print HI
+Vue.component("blog-post", {
+  props: ["post"],
+  template: `<h1>{{post}}Hi</h1>`,
+});
+
+new Vue({
+  el: "#pass-prop-object",
+  data: {
+    post: {
+      id: 1,
+      title: "My Journey with Vue",
+    },
+  },
+});
