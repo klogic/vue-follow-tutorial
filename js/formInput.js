@@ -43,7 +43,11 @@ new Vue({
 
 // bind props and change template to h1 and print HI
 Vue.component("blog-post", {
-  props: ["post"],
+  props: {
+    post: {
+      type: Object,
+    },
+  },
   template: `<h1>{{post}}Hi</h1>`,
 });
 
