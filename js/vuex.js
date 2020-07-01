@@ -10,13 +10,26 @@ const store = new Vuex.Store({
   },
 });
 
-new Vue({
-  el: "#app",
+const Counter = {
+  template: `<div>{{ count }}</div>`,
   computed: {
     count() {
-      return store.state.count;
+      return this.$store.state.count;
     },
   },
+};
+
+new Vue({
+  el: "#app",
+  store,
+  components: { Counter },
+  template: `
+    <div class="app">
+      <counter></counter>
+      <button @click="increment">+</button>
+      <button @click="decrement">-</button>
+    </div>
+  `,
   methods: {
     increment() {
       store.commit("increment");
