@@ -1,5 +1,5 @@
 // make sure to call Vue.use(Vuex) if using a module system
-
+const mapState = Vuex.mapState;
 const store = new Vuex.Store({
   state: {
     count: 0,
@@ -11,12 +11,23 @@ const store = new Vuex.Store({
 });
 
 const Counter = {
-  template: `<div>{{ count }}</div>`,
-  computed: {
-    count() {
-      return this.$store.state.count;
-    },
+  template: `<div>
+  </br>
+  count: {{count}}
+  </br>
+  countAlias: {{countAlias}}
+  </br>
+  countPlusLocalState: {{ countPlusLocalState }}</div>`,
+  data() {
+    return { localCount: 3 };
   },
+  computed: mapState({
+    count: (state) => state.count,
+    countAlias: "count",
+    countPlusLocalState(state) {
+      return state.count + this.localCount;
+    },
+  }),
 };
 
 new Vue({
